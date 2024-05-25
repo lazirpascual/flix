@@ -1,21 +1,3 @@
-# from the controller, we fetch a movie record and assign it to the @movie instance variable
-# we use the form_with helper method to create a form that will submit a PATCH request to the /movies/:id URL
-# it submits a patch request because the movie record already exists in the database
-<%= form_with(model: @movie) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<h1>Editing Movie: <%= @movie.title %></h1>
 
-  <%= f.label :description %>
-  <%= f.text_area :description, rows: 7 %>
-
-  <%= f.label :rating %>
-  <%= f.text_field :rating %>
-
-  <%= f.label :released_on %>
-  <%= f.date_field :released_on %>
-
-  <%= f.label :total_gross %>
-  <%= f.number_field :total_gross %>
-
-  <%= f.submit %>
-<% end %>
+<%= render "form", movie: @movie %>
