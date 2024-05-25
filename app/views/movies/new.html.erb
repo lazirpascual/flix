@@ -1,6 +1,6 @@
 # from the controller, we fetch a movie record and assign it to the @movie instance variable
-# we use the form_with helper method to create a form that will submit a PATCH request to the /movies/:id URL
-# it submits a patch request because the movie record already exists in the database
+# we use the form_with helper method to create a form that will submit a POST request to the /movies/:id URL
+# it submits a post request because the movie record does not yet exist in the database
 <%= form_with(model: @movie) do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -12,7 +12,7 @@
   <%= f.text_field :rating %>
 
   <%= f.label :released_on %>
-  <%= f.date_field :released_on %>
+  <%= f.date_select :released_on, {}, {class: "date"} %>
 
   <%= f.label :total_gross %>
   <%= f.number_field :total_gross %>
