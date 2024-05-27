@@ -1,7 +1,12 @@
+<%
 # from the controller, we fetch a movie record and assign it to the @movie instance variable
 # we use the form_with helper method to create a form that will submit a POST request to the /movies/:id URL
 # it knows whether or not to submit a POST or PATCH request based on whether or not the movie record exists in the database
+%>
+
 <%= form_with(model: movie) do |f| %>
+  <%= render "shared/errors", object: movie %>
+  
   <%= f.label :title %>
   <%= f.text_field :title, autofocus: true %>
 
